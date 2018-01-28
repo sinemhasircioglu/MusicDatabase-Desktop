@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicDB
 {
-    public class MusicDbContext : Database
+    public class MusicDbContext 
     {
+        HttpClient client = new HttpClient();
+
+        public MusicDbContext()
+        {
+            client.DefaultRequestHeaders.Add("Content-Type", "application/json");
+            client.BaseAddress = new Uri("http://localhost:51293/");
+        }
+
         #region Artists
 
         public DataTable GetArtists()
