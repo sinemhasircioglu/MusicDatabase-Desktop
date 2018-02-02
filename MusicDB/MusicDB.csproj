@@ -106,12 +106,6 @@
     <Compile Include="FormSongs.Designer.cs">
       <DependentUpon>FormSongs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\Artist.cs" />
-    <Compile Include="Models\Featuring.cs" />
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\Lyric.cs" />
-    <Compile Include="Models\Song.cs" />
     <Compile Include="MusicDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

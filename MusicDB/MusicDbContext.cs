@@ -8,16 +8,8 @@ using System.Threading.Tasks;
 
 namespace MusicDB
 {
-    public class MusicDbContext 
+    public class MusicDbContext : Database
     {
-        HttpClient client = new HttpClient();
-
-        public MusicDbContext()
-        {
-            client.DefaultRequestHeaders.Add("Content-Type", "application/json");
-            client.BaseAddress = new Uri("http://localhost:51293/");
-        }
-
         #region Artists
 
         public DataTable GetArtists()
@@ -236,7 +228,7 @@ $"(album_name,artist_id,barcode,country,is_single,release_year) VALUES('{AlbumNa
 
         public DataTable Search(string kelime)
         {
-            string searchQuery = "SELECT * FROM "+ GetTableName("song_info")+ 
+            string searchQuery = "SELECT * FROM " + GetTableName("song_info") +
  $" WHERE song_name LIKE '%{kelime}%' OR artist_name LIKE '%{kelime}%' OR album_name LIKE '%{kelime}%' ";
             return GetTable(searchQuery);
         }
